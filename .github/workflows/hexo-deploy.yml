@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
 
       # 安装依赖
       - name: Install Dependencies
