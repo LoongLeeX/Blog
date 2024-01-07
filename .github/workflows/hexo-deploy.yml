@@ -17,11 +17,11 @@ jobs:
     steps:
       # 获取博客源码和主题
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # 这里用的是 Node.js 13.x，14.x 生成 Hexo 静态页面会有问题
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
 
