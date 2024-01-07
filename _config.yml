@@ -104,3 +104,7 @@ deploy:
   type: git
   repo: git@github.com:cuisiting/cuisiting.github.io.git
   branch: main
+
+cusdis:
+  host:
+  app_id: cbdcdf6a-583c-4871-824c-ff17835e14e4
