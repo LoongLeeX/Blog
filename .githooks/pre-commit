@@ -1,15 +1,29 @@
 #!/bin/sh
 
 # 指定允许的作者列表
-ALLOWED_AUTHORS=("cuisiting@gmail.com" "author2@example.com" "author3@example.com")
+ALLOWED_AUTHORS_EAMIL=("cuisiting@gmail.com" "author2@example.com" )
+ALLOWED_AUTHORS_NAME=("cuisiting" "author2" )
+
 
 # 获取当前提交的作者电子邮件
-AUTHOR_EMAIL=$(git var GIT_AUTHOR_EMAIL)
+AUTHOR_EMAIL=$(git config user.email)
+
+AUTHOR_NAME=$(git config user.name)
 
 # 检查作者是否在允许的列表中
-if printf '%s\n' "${ALLOWED_AUTHORS[@]}" | grep -qx "$AUTHOR_EMAIL"; then
+if printf '%s\n' "${ALLOWED_AUTHORS_EAMIL[@]}" | grep -qx "$AUTHOR_EMAIL"; then
     echo "Author verified."
 else
-    echo "Error: Author '$AUTHOR_EMAIL' is not in the allowed list."
+    echo "Error: Author email '$AUTHOR_EMAIL' is not in the allowed list."
+    exit 1
+fi
+
+
+
+# 检查作者是否在允许的列表中
+if printf '%s\n' "${ALLOWED_AUTHORS_NAME[@]}" | grep -qx "$AUTHOR_NAME"; then
+    echo "Author verified."
+else
+    echo "Error: Author name '$AUTHOR_NAME' is not in the allowed list."
     exit 1
 fi
